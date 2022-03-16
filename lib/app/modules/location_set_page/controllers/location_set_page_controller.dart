@@ -1,11 +1,7 @@
 import 'package:get/get.dart';
 
-class SignupController extends GetxController {
-  //TODO: Implement SignupController
-
-
-
-
+class LocationSetPageController extends GetxController {
+  //TODO: Implement LocationSetPageController
 
   final count = 0.obs;
   @override
@@ -16,11 +12,6 @@ class SignupController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-  }
-
-
-  void onClick(){
-    Get.offNamed('/login');
   }
 
   @override

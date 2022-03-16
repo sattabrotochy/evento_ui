@@ -4,6 +4,10 @@ class HomeController extends GetxController {
   //TODO: Implement HomeController
 
   final count = 0.obs;
+
+
+  var indexCount=0;
+
   @override
   void onInit() {
     super.onInit();
@@ -12,6 +16,12 @@ class HomeController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+  }
+
+  indexCountTrendingEvent(index){
+    indexCount=index;
+    update();
+
   }
 
   @override

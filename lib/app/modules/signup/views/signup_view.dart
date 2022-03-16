@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../constant.dart';
 import '../../common_widget/button_widget.dart';
+import '../../common_widget/custom_app_bar.dart';
 import '../controllers/signup_controller.dart';
 import 'component/sing_up_text_input_field_widget.dart';
 import 'component/social media_widget.dart';
@@ -22,9 +23,10 @@ class SignupView extends GetView<SignupController> {
             margin: const EdgeInsets.only(top: 20, left: 28, right: 28),
             child: Column(
               children: [
-                const SizedBox(
-                  height: 20,
+                const CustomAppbar(
+                  title: "",
                 ),
+
                 Container(
                   alignment: Alignment.center,
                   child: Text(
@@ -172,6 +174,39 @@ class SignupView extends GetView<SignupController> {
                   color: kPrimaryColorWhite,
                   text: "Sign Up",
                   boxShadow: kPrimaryColorOrange.withOpacity(0.2),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+
+                Container(
+                  alignment: Alignment.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text("Already have an account ?",
+                          style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.normal,
+                              fontStyle: FontStyle.normal,
+                              color: Colors.black)),
+                      InkWell(
+                        onTap: () {
+                          Get.offNamed('/login');
+                        },
+                        child: Text(" Log in",
+                            style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                                fontStyle: FontStyle.normal,
+                                color: kPrimaryColorOrange)),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
               ],
             ),

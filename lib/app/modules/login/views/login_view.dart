@@ -98,7 +98,9 @@ class LoginView extends GetView<LoginController> {
                   ButtonWidget(
                     backgroundColor: kPrimaryColorOrange,
                     borderColor: kPrimaryColorOrange,
-                    press: () {},
+                    press: () {
+                      Get.offNamed('/location-set-page');
+                    },
                     color: kPrimaryColorWhite,
                     text: "Login",
                     boxShadow: kPrimaryColorOrange.withOpacity(0.2),

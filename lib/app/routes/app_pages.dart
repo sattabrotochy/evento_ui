@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/location_set_page/bindings/location_set_page_binding.dart';
+import '../modules/location_set_page/views/location_set_page_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/onboarding_screen/bindings/onboarding_screen_binding.dart';
@@ -36,6 +38,11 @@ class AppPages {
       name: _Paths.SIGNUP,
       page: () => SignupView(),
       binding: SignupBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOCATION_SET_PAGE,
+      page: () => LocationSetPageView(),
+      binding: LocationSetPageBinding(),
     ),
   ];
 }
