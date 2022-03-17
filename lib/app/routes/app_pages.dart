@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
 
+import '../modules/category_screen/bindings/category_screen_binding.dart';
+import '../modules/category_screen/views/category_screen_view.dart';
+import '../modules/event_screen/bindings/event_screen_binding.dart';
+import '../modules/event_screen/views/event_screen_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/location_set_page/bindings/location_set_page_binding.dart';
@@ -43,6 +47,16 @@ class AppPages {
       name: _Paths.LOCATION_SET_PAGE,
       page: () => LocationSetPageView(),
       binding: LocationSetPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.CATEGORY_SCREEN,
+      page: () => CategoryScreenView(),
+      binding: CategoryScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.EVENT_SCREEN,
+      page: () => EventScreenView(),
+      binding: EventScreenBinding(),
     ),
   ];
 }

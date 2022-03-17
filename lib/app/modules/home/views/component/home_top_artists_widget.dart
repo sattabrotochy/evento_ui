@@ -31,20 +31,20 @@ class HomeTopArtistsWidget extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.only(left: 15, right: 15),
-          height: 140,
+          height: 130,
           child: ListView.builder(
             itemCount: 15,
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
             itemBuilder: (_, int index) {
               return Container(
-                height: 135,
+                height: 125,
                 width: 86,
                 alignment: Alignment.center,
                 margin: const EdgeInsets.only(left: 5, right: 5),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

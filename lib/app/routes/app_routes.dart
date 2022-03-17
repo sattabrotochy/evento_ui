@@ -8,6 +8,8 @@ abstract class Routes {
   static const LOGIN = _Paths.LOGIN;
   static const SIGNUP = _Paths.SIGNUP;
   static const LOCATION_SET_PAGE = _Paths.LOCATION_SET_PAGE;
+  static const CATEGORY_SCREEN = _Paths.CATEGORY_SCREEN;
+  static const EVENT_SCREEN = _Paths.EVENT_SCREEN;
 }
 
 abstract class _Paths {
@@ -17,4 +19,6 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const SIGNUP = '/signup';
   static const LOCATION_SET_PAGE = '/location-set-page';
+  static const CATEGORY_SCREEN = '/category-screen';
+  static const EVENT_SCREEN = '/event-screen';
 }

@@ -3,12 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../../constant.dart';
 
 class HomeHeaderWidget extends StatelessWidget {
-  const HomeHeaderWidget({Key? key}) : super(key: key);
+  final Callback categoryPage;
+  const HomeHeaderWidget({Key? key, required this.categoryPage}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -66,19 +68,22 @@ class HomeHeaderWidget extends StatelessWidget {
               const SizedBox(
                 width: 10,
               ),
-              Container(
-                height: Get.height / 16,
-                width: 60,
-                padding: const EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                    color: kPrimaryColorOrange,
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                      width: 1,
-                      color: Colors.white,
-                    )),
-                child: SvgPicture.asset("assets/icon/filter.svg"),
-              )
+             InkWell(
+               onTap: categoryPage,
+               child:  Container(
+                 height: Get.height / 16,
+                 width: 60,
+                 padding: const EdgeInsets.all(15),
+                 decoration: BoxDecoration(
+                     color: kPrimaryColorOrange,
+                     borderRadius: BorderRadius.circular(20),
+                     border: Border.all(
+                       width: 1,
+                       color: Colors.white,
+                     )),
+                 child: SvgPicture.asset("assets/icon/filter.svg"),
+               ),
+             )
             ],
           )
         ],

@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'component/events_for_you_widget.dart';
 import 'component/home_top_artists_widget.dart';
 import 'component/home_trending_widget.dart';
 import '../controllers/home_controller.dart';
@@ -61,13 +62,19 @@ class HomeView extends GetView<HomeController> {
           scrollDirection: Axis.vertical,
           physics: const BouncingScrollPhysics(),
           child: Column(
-            children: const [
+            children:  [
               ///home page header here
-              HomeHeaderWidget(),
-              SizedBox(height: 20,),
-              HomeTreadingWidget(),
-              SizedBox(height: 20,),
-              HomeTopArtistsWidget(),
+              HomeHeaderWidget(
+                categoryPage: (){
+                  Get.toNamed('/category-screen');
+                },
+              ),
+              const SizedBox(height: 20,),
+              const HomeTreadingWidget(),
+              const SizedBox(height: 20,),
+              const HomeTopArtistsWidget(),
+              const SizedBox(height: 20,),
+              const EventForYouWidget()
             ],
           ),
         )
