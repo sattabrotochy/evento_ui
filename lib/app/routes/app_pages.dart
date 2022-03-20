@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
 
+import '../modules/Profile/bindings/profile_binding.dart';
+import '../modules/Profile/views/profile_view.dart';
+import '../modules/bookTickets_screen/bindings/book_tickets_screen_binding.dart';
+import '../modules/bookTickets_screen/views/book_tickets_screen_view.dart';
 import '../modules/category_screen/bindings/category_screen_binding.dart';
 import '../modules/category_screen/views/category_screen_view.dart';
 import '../modules/event_screen/bindings/event_screen_binding.dart';
@@ -12,8 +16,12 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/onboarding_screen/bindings/onboarding_screen_binding.dart';
 import '../modules/onboarding_screen/views/onboarding_screen_view.dart';
+import '../modules/payment_screen/bindings/payment_screen_binding.dart';
+import '../modules/payment_screen/views/payment_screen_view.dart';
 import '../modules/signup/bindings/signup_binding.dart';
 import '../modules/signup/views/signup_view.dart';
+import '../modules/tickets_screen/bindings/tickets_screen_binding.dart';
+import '../modules/tickets_screen/views/tickets_screen_view.dart';
 
 part 'app_routes.dart';
 
@@ -57,6 +65,26 @@ class AppPages {
       name: _Paths.EVENT_SCREEN,
       page: () => EventScreenView(),
       binding: EventScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOOK_TICKETS_SCREEN,
+      page: () => BookTicketsScreenView(),
+      binding: BookTicketsScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => ProfileView(),
+      binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAYMENT_SCREEN,
+      page: () => PaymentScreenView(),
+      binding: PaymentScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.TICKETS_SCREEN,
+      page: () => TicketsScreenView(),
+      binding: TicketsScreenBinding(),
     ),
   ];
 }
