@@ -8,31 +8,36 @@ class EventForYouWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            alignment: Alignment.centerLeft,
-            child: Text(
-              "Events For You",
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600,
-                fontStyle: FontStyle.normal,
-                fontSize: 20,
-              ),
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.only(left: 20, right: 20),
+          alignment: Alignment.centerLeft,
+          child: Text(
+            "Events For You",
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w600,
+              fontStyle: FontStyle.normal,
+              fontSize: 20,
             ),
           ),
-          const SizedBox(height:20 ,),
-          ListView.builder(
-            itemCount: 5,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: (context,int index){
-              return Container(
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        ListView.builder(
+          itemCount: 5,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, int index) {
+            return InkWell(
+              onTap: () {
+                Get.toNamed('/book-tickets-screen');
+              },
+              child: Container(
                 height: 93,
                 padding: const EdgeInsets.only(left: 10, right: 10),
-                margin: const EdgeInsets.only(left: 20, right: 20,bottom: 10),
+                margin: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -51,63 +56,65 @@ class EventForYouWidget extends StatelessWidget {
                     ),
                     Expanded(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              alignment: Alignment.centerLeft,
-                              margin: const EdgeInsets.only(left: 10, ),
-                              child: Text(
-                                "Banned Music Concert",
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w600,
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: Get.width/22,
-                                ),
-                              ),
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          margin: const EdgeInsets.only(
+                            left: 10,
+                          ),
+                          child: Text(
+                            "Banned Music Concert",
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FontStyle.normal,
+                              fontSize: Get.width / 22,
                             ),
-                            Container(
-                              alignment: Alignment.centerLeft,
-                              margin: const EdgeInsets.only(left: 10, ),
-                              child: Text(
-                                "26 Dec Sunday at 2.00 PM",
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: Get.width/29,
-                                    color: kPrimaryColorOrange
-                                ),
-                              ),
-                            ),
-                            Container(
-                              alignment: Alignment.centerLeft,
-                              margin: const EdgeInsets.only(left: 10, ),
-                              child: Text(
-                                "3120 Zinda Bazar, Sylhet",
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w600,
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: Get.width/29,
-                                    color: Colors.grey[400]
-                                ),
-                              ),
-                            ),
-
-
-                          ],
-                        ))
+                          ),
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          margin: const EdgeInsets.only(
+                            left: 10,
+                          ),
+                          child: Text(
+                            "26 Dec Sunday at 2.00 PM",
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.normal,
+                                fontStyle: FontStyle.normal,
+                                fontSize: Get.width / 29,
+                                color: kPrimaryColorOrange),
+                          ),
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          margin: const EdgeInsets.only(
+                            left: 10,
+                          ),
+                          child: Text(
+                            "3120 Zinda Bazar, Sylhet",
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w600,
+                                fontStyle: FontStyle.normal,
+                                fontSize: Get.width / 29,
+                                color: Colors.grey[400]),
+                          ),
+                        ),
+                      ],
+                    ))
                   ],
                 ),
-              );
-            },
-          )
-        ],
-      ),
+              ),
+            );
+          },
+        )
+      ],
     );
   }
 }

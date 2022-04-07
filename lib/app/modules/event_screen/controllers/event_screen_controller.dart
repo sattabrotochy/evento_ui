@@ -8,37 +8,37 @@ class EventScreenController extends GetxController {
 
 
 
-  bool recent=false;
-  bool thisWeek=false;
-  bool thisMonth=false;
+  RxBool recent=true.obs;
+  RxBool thisWeek=false.obs;
+  RxBool thisMonth=false.obs;
 
 
 
   setRecentFalse(){
-    recent=false;
+    recent(false);
     update();
   }
   setRecentTrue(){
-    recent=true;
+    recent(true);
     update();
   }
 
 
   setThisWeekFalse(){
-    thisWeek=false;
+    thisWeek(false);
     update();
   }
   setThisWeekTrue(){
-    thisWeek=true;
+    thisWeek(true);
     update();
   }
 
   setThisMonthFalse(){
-    thisMonth=false;
+    thisMonth(false);
     update();
   }
   setThisMonthTrue(){
-    thisMonth=true;
+    thisMonth(true);
     update();
   }
 

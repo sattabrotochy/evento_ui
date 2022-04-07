@@ -15,6 +15,9 @@ dependencies:
   flutter_svg: ^1.0.3
   carousel_slider: ^4.0.0
   extended_sliver: ^2.0.1
+  ticket_widget:
+  flutter_share: ^2.0.0
+ 
   
 
 dev_dependencies: 

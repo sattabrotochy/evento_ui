@@ -3,10 +3,9 @@ import 'package:get/get.dart';
 class HomeController extends GetxController {
   //TODO: Implement HomeController
 
-  final count = 0.obs;
+  final count = 1.obs;
 
-
-  var indexCount=0;
+  var indexCount = 1;
 
   @override
   void onInit() {
@@ -18,10 +17,9 @@ class HomeController extends GetxController {
     super.onReady();
   }
 
-  indexCountTrendingEvent(index){
-    indexCount=index;
+  indexCountTrendingEvent(index) {
+    indexCount = index;
     update();
-
   }
 
   @override

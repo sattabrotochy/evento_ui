@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:flutter_share/flutter_share.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../../constant.dart';
 import '../../common_widget/button_widget.dart';
 import '../controllers/book_tickets_screen_controller.dart';
+import 'component/event_details_section.dart';
+import 'component/going_scrtion_&_price.dart';
+import 'component/hosted_by_section.dart';
 
 class BookTicketsScreenView extends GetView<BookTicketsScreenController> {
   const BookTicketsScreenView({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class BookTicketsScreenView extends GetView<BookTicketsScreenController> {
     return Scaffold(
         body: Stack(
       children: [
+        /// image app bar
         Container(
           width: double.maxFinite,
           height: 300,
@@ -121,12 +123,21 @@ class BookTicketsScreenView extends GetView<BookTicketsScreenController> {
                         ),
                       ],
                     )),
-                    const SizedBox(
+                    SizedBox(
                       height: 30,
                       width: 30,
-                      child: Icon(
-                        Icons.share_rounded,
-                        color: Colors.white,
+                      child: InkWell(
+                        onTap: ()async {
+                         await FlutterShare.share(
+                              title: 'Example share',
+                              text: 'Example share text',
+                              linkUrl: 'https://flutter.dev/',
+                              chooserTitle: 'Example Chooser Title');
+                        },
+                        child: const Icon(
+                          Icons.share_rounded,
+                          color: Colors.white,
+                        ),
                       ),
                     )
                   ],
@@ -139,6 +150,7 @@ class BookTicketsScreenView extends GetView<BookTicketsScreenController> {
                 child: Container(
                     height: double.maxFinite,
                     width: double.maxFinite,
+                    padding: const EdgeInsets.only(top: 20),
                     decoration: const BoxDecoration(
                       color: Color(0xFFFBFBFB),
                       borderRadius: BorderRadius.only(
@@ -149,83 +161,8 @@ class BookTicketsScreenView extends GetView<BookTicketsScreenController> {
                       physics: const BouncingScrollPhysics(),
                       child: Column(
                         children: [
-                          Container(
-                            height: 80,
-                            margin: const EdgeInsets.only(
-                                left: 20, right: 20, top: 20),
-                            child: Row(
-                              children: [
-                                InkWell(
-                                  onTap: () {
-
-                                    Get.toNamed('/profile');
-                                  },
-                                  child: Container(
-                                    height: 58,
-                                    width: 58,
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(5),
-                                        image: const DecorationImage(
-                                            image: NetworkImage(
-                                                "https://images.unsplash.com/photo-1619378881082-f97e57e1f20a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDl8fHJvY2slMjBtdXNpYyUyMGdpcmx8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"),
-                                            fit: BoxFit.cover)),
-                                  ),
-                                ),
-                                Expanded(
-                                    child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    InkWell(
-                                      onTap: () {
-                                        Get.toNamed('/profile');
-                                      },
-                                      child: Container(
-                                        alignment: Alignment.centerLeft,
-                                        margin: const EdgeInsets.only(left: 16),
-                                        child: Text(
-                                          "Hosted By",
-                                          style: GoogleFonts.poppins(
-                                              fontStyle: FontStyle.normal,
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: 18,
-                                              color: ktextColors),
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      margin: const EdgeInsets.only(left: 16),
-                                      child: Text(
-                                        "Dribbble Community",
-                                        style: GoogleFonts.poppins(
-                                            fontStyle: FontStyle.normal,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 14,
-                                            color: const Color(0xFF9C9C9C)),
-                                      ),
-                                    ),
-                                  ],
-                                )),
-                                Container(
-                                  height: 25,
-                                  width: 53,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                      color: kPrimaryColorOrange,
-                                      borderRadius: BorderRadius.circular(5)),
-                                  child: Text(
-                                    "Follow",
-                                    style: GoogleFonts.poppins(
-                                        fontStyle: FontStyle.normal,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 11,
-                                        color: Colors.white),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                          /// hosted/ follow by section widget here
+                          const HostedBySectionTicketBooking(),
                           const SizedBox(
                             height: 21,
                           ),
@@ -234,253 +171,19 @@ class BookTicketsScreenView extends GetView<BookTicketsScreenController> {
                             margin: const EdgeInsets.only(left: 35, right: 35),
                             color: Colors.grey[300],
                           ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            margin: const EdgeInsets.only(
-                                left: 20, right: 20, top: 20),
-                            child: Text(
-                              "Event Details",
-                              style: GoogleFonts.poppins(
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 19,
-                                  color: ktextColors),
-                            ),
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            margin: const EdgeInsets.only(
-                                left: 20, right: 20, top: 20),
-                            child: Text(
-                              "This paper presents the theory of User Experience best practices in software product lines. The used to derive the best practices is.,",
-                              style: GoogleFonts.poppins(
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 12,
-                                  height: 2.0,
-                                  color: ktextColors),
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(
-                                left: 20, right: 20, top: 20),
-                            child: Row(
-                              children: [
-                                Container(
-                                  height: 41,
-                                  width: 41,
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(5),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.2),
-                                        spreadRadius: 5,
-                                        blurRadius: 7,
-                                        offset: const Offset(
-                                            0, 3), // changes position of shadow
-                                      ),
-                                    ],
-                                  ),
-                                  child:
-                                      SvgPicture.asset("assets/icon/watch.svg"),
-                                ),
-                                const SizedBox(
-                                  width: 14,
-                                ),
-                                Expanded(
-                                    child: Column(
-                                  children: [
-                                    Container(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Mon, 26 December, 2020",
-                                          style: GoogleFonts.poppins(
-                                              fontStyle: FontStyle.normal,
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 15,
-                                              color: ktextColors),
-                                        )),
-                                    Container(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "12 PM to 4PM ",
-                                          style: GoogleFonts.poppins(
-                                              fontStyle: FontStyle.normal,
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 14,
-                                              color: Colors.grey[400]),
-                                        )),
-                                  ],
-                                ))
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(
-                                left: 20, right: 20, top: 20),
-                            child: Row(
-                              children: [
-                                Container(
-                                  height: 41,
-                                  width: 41,
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(5),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.2),
-                                        spreadRadius: 5,
-                                        blurRadius: 7,
-                                        offset: const Offset(
-                                            0, 3), // changes position of shadow
-                                      ),
-                                    ],
-                                  ),
-                                  child:
-                                      SvgPicture.asset("assets/icon/watch.svg"),
-                                ),
-                                const SizedBox(
-                                  width: 14,
-                                ),
-                                Expanded(
-                                    child: Column(
-                                  children: [
-                                    Container(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Mon, 26 December, 2020",
-                                          style: GoogleFonts.poppins(
-                                              fontStyle: FontStyle.normal,
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 15,
-                                              color: ktextColors),
-                                        )),
-                                    Container(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "12 PM to 4PM ",
-                                          style: GoogleFonts.poppins(
-                                              fontStyle: FontStyle.normal,
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 14,
-                                              color: Colors.grey[400]),
-                                        )),
-                                  ],
-                                ))
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(
-                                left: 20, right: 20, top: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      height: 40,
-                                      width: 120,
-                                      margin: const EdgeInsets.only(
-                                          left: 15, right: 2),
-                                      child: Stack(
-                                        children: [
-                                          ...List.generate(
-                                            length <= 3 ? length : 5,
-                                            (index) => Positioned(
-                                              left: index * 20,
-                                              child: index > 3
-                                                  ? Container(
-                                                      height: 35,
-                                                      width: 35,
-                                                      alignment:
-                                                          Alignment.center,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            kPrimaryColorOrange,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(20),
-                                                        border: Border.all(
-                                                            color: Colors.white,
-                                                            width: 1),
-                                                      ),
-                                                      child: Text(
-                                                          "${length - index}+",
-                                                          style: GoogleFonts.poppins(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400,
-                                                              fontStyle:
-                                                                  FontStyle
-                                                                      .normal,
-                                                              fontSize:
-                                                                  Get.width /
-                                                                      34,
-                                                              color: Colors
-                                                                  .white)),
-                                                    )
-                                                  : Container(
-                                                      height: 35,
-                                                      width: 35,
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(20),
-                                                        border: Border.all(
-                                                            color: Colors.white,
-                                                            width: 1),
-                                                        image:
-                                                            const DecorationImage(
-                                                          image: NetworkImage(
-                                                              "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2ZpbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"),
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Text(
-                                      "Going",
-                                      style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 13,
-                                        fontStyle: FontStyle.normal,
-                                        color: ktextColors,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                Container(
-                                  height: 40,
-                                  width: 86,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                      color:
-                                          kPrimaryColorOrange.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(5)),
-                                  child: Text(
-                                    "\$ 150",
-                                    style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 19,
-                                      fontStyle: FontStyle.normal,
-                                      color: kPrimaryColorOrange,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
+
+                          /// events details section widget here
+                          const EvenDetailsScetionWidget(),
+
+                          /// going  section users list and price  widget here
+                          GoingSectionAndPriceWidget(
+                            length: length,
                           ),
                           const SizedBox(
                             height: 21,
                           ),
+
+                          /// Book Ticket section button  widget here just pass button name parameter,color and onPressed function
                           Container(
                             margin: const EdgeInsets.only(
                                 left: 20, right: 20, top: 20, bottom: 20),

@@ -1,8 +1,9 @@
+// ignore_for_file: avoid_returning_null_for_void, unnecessary_null_comparison, import_of_legacy_library_into_null_safe
+
+import 'package:flutter_share/flutter_share.dart';
 import 'package:get/get.dart';
 
 class BookTicketsScreenController extends GetxController {
-  //TODO: Implement BookTicketsScreenController
-
   final count = 0.obs;
   @override
   void onInit() {
@@ -17,4 +18,6 @@ class BookTicketsScreenController extends GetxController {
   @override
   void onClose() {}
   void increment() => count.value++;
+
+ 
 }

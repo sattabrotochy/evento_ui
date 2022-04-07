@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -10,7 +8,8 @@ import '../../../../../constant.dart';
 
 class HomeHeaderWidget extends StatelessWidget {
   final Callback categoryPage;
-  const HomeHeaderWidget({Key? key, required this.categoryPage}) : super(key: key);
+  const HomeHeaderWidget({Key? key, required this.categoryPage})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +19,16 @@ class HomeHeaderWidget extends StatelessWidget {
       width: double.maxFinite,
       decoration: const BoxDecoration(
           color: Colors.black,
-          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20))),
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20))),
       child: Column(
         children: [
           Container(
             alignment: Alignment.centerLeft,
             child: Text(
-              "Find Your \n "
-                  "Favorite Events",
+              "Find Your \n"
+              "Favorite Events",
               style: GoogleFonts.poppins(
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.normal,
@@ -54,36 +55,35 @@ class HomeHeaderWidget extends StatelessWidget {
                       )),
                   child: TextFormField(
                     decoration: const InputDecoration(
-                        hintText: "search",
+                        hintText: "Search",
                         border: InputBorder.none,
                         focusedBorder: InputBorder.none,
                         enabledBorder: InputBorder.none,
                         errorBorder: InputBorder.none,
                         disabledBorder: InputBorder.none,
-                        suffixIcon: Icon(Icons.search)
-                    ),
+                        suffixIcon: Icon(Icons.search)),
                   ),
                 ),
               ),
               const SizedBox(
                 width: 10,
               ),
-             InkWell(
-               onTap: categoryPage,
-               child:  Container(
-                 height: Get.height / 16,
-                 width: 60,
-                 padding: const EdgeInsets.all(15),
-                 decoration: BoxDecoration(
-                     color: kPrimaryColorOrange,
-                     borderRadius: BorderRadius.circular(20),
-                     border: Border.all(
-                       width: 1,
-                       color: Colors.white,
-                     )),
-                 child: SvgPicture.asset("assets/icon/filter.svg"),
-               ),
-             )
+              InkWell(
+                onTap: categoryPage,
+                child: Container(
+                  height: Get.height / 16,
+                  width: 60,
+                  padding: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      color: kPrimaryColorOrange,
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        width: 1,
+                        color: Colors.white,
+                      )),
+                  child: SvgPicture.asset("assets/icon/filter.svg"),
+                ),
+              )
             ],
           )
         ],
